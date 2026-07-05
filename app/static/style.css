@@ -18,6 +18,17 @@ body{
 }
 
 /* ===========================
+   Top Banner
+=========================== */
+
+.top-banner{
+    text-align:center;
+    color:#888;
+    font-size:12px;
+    margin-bottom:14px;
+}
+
+/* ===========================
    Headings
 =========================== */
 
