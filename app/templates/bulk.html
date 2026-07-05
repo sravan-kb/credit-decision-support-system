@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Credit Assessment</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Bulk Credit Assessment</h1>
+
+        <p class="subtitle">
+            Upload a CSV file containing customer credit information.
+            The system will predict the approval category (P1–P4) for every customer.
+        </p>
+
+        <div class="card form-card">
+
+            <h2>Upload Customer Dataset</h2>
+
+            <form action="/predict_csv" method="POST" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <input type="file" name="file" accept=".csv" required>
+                </div>
+
+                <button type="submit">
+                    Predict Customers
+                </button>
+
+            </form>
+
+        </div>
+
+        <br>
+
+        <div class="back-home-wrap">
+            <a href="/">
+                <button>
+                    ← Back Home
+                </button>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

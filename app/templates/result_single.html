@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quick Credit Assessment Result</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Quick Credit Assessment</h1>
+
+<p class="subtitle">
+
+Prediction Completed Successfully ✅
+
+</p>
+
+<div class="card form-card" style="text-align:center;">
+
+<h2>Predicted Credit Category</h2>
+
+<h1 style="font-size:70px; color:#184c8c;">
+
+{{ prediction }}
+
+</h1>
+
+<br>
+
+<h2>{{ risk }}</h2>
+
+</div>
+
+<br>
+
+<div class="card form-card">
+
+<h2>Prediction Confidence</h2>
+
+<div class="confidence-bar-track">
+
+    {% for item in confidence_breakdown %}
+    <div class="confidence-segment confidence-{{ item.category|lower }}"
+         style="width: {{ item.percent }}%;"
+         title="{{ item.category }}: {{ item.percent }}%">
+    </div>
+    {% endfor %}
+
+</div>
+
+<div class="confidence-legend">
+
+    {% for item in confidence_breakdown %}
+    <div class="confidence-legend-item">
+        <span class="confidence-dot confidence-{{ item.category|lower }}"></span>
+        {{ item.category }} ({{ item.label }}): <strong>{{ item.percent }}%</strong>
+    </div>
+    {% endfor %}
+
+</div>
+
+</div>
+
+<br>
+
+<div class="cards">
+
+<div class="card">
+
+<a href="/single">
+
+<button>
+
+Assess Another Customer
+
+</button>
+
+</a>
+
+</div>
+
+<div class="card">
+
+<a href="/">
+
+<button>
+
+Back Home
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

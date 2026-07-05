@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Prediction Results</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Bulk Prediction Results</h1>
+
+    <p class="subtitle">
+        Credit Decision Support System
+    </p>
+
+    <div class="card" style="width:100%; text-align:center; margin-bottom:30px;">
+
+        <h2>Prediction Completed Successfully ✅</h2>
+
+        <p>
+            The uploaded customer dataset has been processed successfully.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Total Customers</h2>
+            <h1>{{ total_customers }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>P1 (Very Low Risk)</h2>
+            <h1>{{ prediction_counts.get("P1",0) }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>P2 (Low Risk)</h2>
+            <h1>{{ prediction_counts.get("P2",0) }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>P3 (Medium Risk)</h2>
+            <h1>{{ prediction_counts.get("P3",0) }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>P4 (High Risk)</h2>
+            <h1>{{ prediction_counts.get("P4",0) }}</h1>
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="card" style="width:100%;">
+
+        <h2>Overall Top Factors</h2>
+
+        <p class="subtitle" style="text-align:left; margin-bottom:20px; font-size:14px;">
+            The features that had the strongest average influence on risk predictions
+            across all uploaded customers.
+        </p>
+
+        <div class="factor-list">
+
+            {% for factor in global_top_factors %}
+
+            <div class="factor-row">
+
+                <div class="factor-row-top">
+                    <span class="factor-name">{{ loop.index }}. {{ factor.feature }}</span>
+                    <span class="factor-direction factor-supported">{{ factor.influence_label }}</span>
+                </div>
+
+                <div class="factor-bar-track">
+                    <div class="factor-bar-fill factor-bar-increased"
+                         style="width: {{ factor.bar_pct }}%;">
+                    </div>
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <br>
+
+    {% if product_risk_breakdown %}
+
+    <div class="card" style="width:100%;">
+
+        <h2>Product-wise Risk Breakdown</h2>
+
+        <p class="subtitle" style="text-align:left; margin-bottom:20px; font-size:14px;">
+            What percentage of applicants for each product fall into each risk category.
+            Sorted by highest combined P3+P4 ("elevated risk") rate.
+        </p>
+
+        <div class="factor-list">
+
+            {% for item in product_risk_breakdown %}
+
+            <div class="factor-row">
+
+                <div class="factor-row-top">
+                    <span class="factor-name">{{ item.product }}</span>
+                    <span class="factor-impact">{{ item.total }} applicants &middot; {{ item.elevated_risk_pct }}% elevated risk (P3+P4)</span>
+                </div>
+
+                <div class="confidence-bar-track" style="height:20px;">
+                    <div class="confidence-segment confidence-p1" style="width: {{ item.p1_pct }}%;" title="P1: {{ item.p1_pct }}%"></div>
+                    <div class="confidence-segment confidence-p2" style="width: {{ item.p2_pct }}%;" title="P2: {{ item.p2_pct }}%"></div>
+                    <div class="confidence-segment confidence-p3" style="width: {{ item.p3_pct }}%;" title="P3: {{ item.p3_pct }}%"></div>
+                    <div class="confidence-segment confidence-p4" style="width: {{ item.p4_pct }}%;" title="P4: {{ item.p4_pct }}%"></div>
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <br>
+
+    {% endif %}
+
+    {% if enquiry_insight %}
+
+    <div class="card" style="width:100%;">
+
+        <h2>Enquiry Pattern Insight</h2>
+
+        <p class="subtitle" style="text-align:left; margin-bottom:12px; font-size:14px;">
+            Average recent loan enquiry activity by risk category. Higher enquiry
+            counts ("credit hungry" behavior) often correlate with higher risk.
+        </p>
+
+        {% if enquiry_headline %}
+        <div class="summary-sentence">
+            {{ enquiry_headline }}
+        </div>
+        {% endif %}
+
+        <div class="factor-list">
+
+            {% for entry in enquiry_insight %}
+
+            <div class="factor-row">
+
+                <div class="factor-row-top">
+                    <span class="factor-name">{{ entry.category }} ({{ entry.label }})</span>
+                </div>
+
+                {% for col in enquiry_cols %}
+                <div style="margin-bottom:8px;">
+                    <span class="factor-impact">{{ entry.metrics[col].label }}: about {{ entry.metrics[col].approx }} enquiries per customer <span style="color:#aaa;">(avg {{ entry.metrics[col].avg }})</span></span>
+                    <div class="factor-bar-track">
+                        <div class="factor-bar-fill factor-bar-increased" style="width: {{ entry.metrics[col].bar_pct }}%;"></div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <br>
+
+    {% endif %}
+
+    <div class="card" style="width:100%;">
+
+        <h2>Prediction Preview (First 20 Customers)</h2>
+
+        <div style="overflow-x:auto;">
+
+            <table border="1" width="100%">
+
+                <thead>
+
+                    <tr>
+
+                        {% for column in table.columns %}
+                        <th>{{ column }}</th>
+                        {% endfor %}
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for row in table.values %}
+
+                    <tr>
+
+                        {% for value in row %}
+                        <td>{{ value }}</td>
+                        {% endfor %}
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <a href="/bulk">
+
+                <button>
+
+                    Predict Another CSV
+
+                </button>
+
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <a href="/">
+
+                <button>
+
+                    Back Home
+
+                </button>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Decision Support System</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Credit Decision Support System</h1>
+
+        <p class="subtitle">
+            Machine Learning based system for predicting customer credit approval category.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h2>👤 Single Customer Prediction</h2>
+
+                <p>
+                    Predict the approval category (P1–P4) for an individual customer.
+                </p>
+
+                <a href="/single">
+                    <button>
+                        Start Prediction
+                    </button>
+                </a>
+
+            </div>
+
+            <div class="card">
+
+                <h2>📄 Bulk CSV Prediction</h2>
+
+                <p>
+                    Upload a CSV file and predict approval categories for multiple customers.
+                </p>
+
+                <a href="/bulk">
+                    <button>
+                        Upload CSV
+                    </button>
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="stats-strip">
+
+            <div class="stat-box">
+                <h3>51,336</h3>
+                <p>Records Trained On</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>60</h3>
+                <p>Credit Features Analyzed</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>4</h3>
+                <p>Risk Categories (P1–P4)</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>2</h3>
+                <p>ML Models (Quick + Full)</p>
+            </div>
+
+        </div>
+
+        <div class="section-heading">
+            <h2>How It Works</h2>
+        </div>
+
+        <p class="subtitle" style="max-width:700px; margin-left:auto; margin-right:auto; margin-bottom:30px;">
+            Banks use exactly this kind of risk category to decide, in seconds, whether to approve
+            a loan or credit card application — instead of manually reviewing someone's full financial
+            history every time.
+        </p>
+
+        <div class="cards">
+
+            <div class="card step-card">
+                <div class="step-number">1</div>
+                <h2>Enter or Upload Data</h2>
+                <p>
+                    Provide a single customer's details, or upload a CSV file for multiple customers at once.
+                </p>
+            </div>
+
+            <div class="card step-card">
+                <div class="step-number">2</div>
+                <h2>ML Model Predicts</h2>
+                <p>
+                    An XGBoost model trained on historical credit data analyzes the inputs and predicts a risk category.
+                </p>
+            </div>
+
+            <div class="card step-card">
+                <div class="step-number">3</div>
+                <h2>Get Risk Category</h2>
+                <p>
+                    Instantly view the predicted category (P1 = Very Low Risk to P4 = High Risk) for lending decisions.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="section-heading">
+            <h2>Understanding Risk Categories</h2>
+        </div>
+
+        <div class="cards">
+
+            <div class="card risk-card risk-p1">
+                <h2>P1</h2>
+                <h3>Very Low Risk</h3>
+                <p>
+                    Strong credit history, healthy income, and minimal delinquency signals. Highly likely to be approved with favorable terms.
+                </p>
+            </div>
+
+            <div class="card risk-card risk-p2">
+                <h2>P2</h2>
+                <h3>Low Risk</h3>
+                <p>
+                    Generally reliable credit behavior with minor irregularities. Approval is likely under standard terms.
+                </p>
+            </div>
+
+            <div class="card risk-card risk-p3">
+                <h2>P3</h2>
+                <h3>Medium Risk</h3>
+                <p>
+                    Some signs of financial stress or inconsistent repayment history. Requires closer review before approval.
+                </p>
+            </div>
+
+            <div class="card risk-card risk-p4">
+                <h2>P4</h2>
+                <h3>High Risk</h3>
+                <p>
+                    Significant delinquency history or unstable financial indicators. High likelihood of rejection or added scrutiny.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p>Credit Decision Support Platform &mdash; CDAC PGCP Big Data Analytics, Final Project (Feb 2026 batch)</p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

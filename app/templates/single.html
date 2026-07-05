@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quick Credit Assessment</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Quick Credit Assessment</h1>
+
+        <p class="subtitle">
+            Enter the customer's basic details to predict the credit approval category.
+        </p>
+
+        <div class="card form-card">
+
+            <form action="/predict_single" method="POST">
+
+                <div class="form-group">
+                    <label for="Credit_Score">Credit Score</label>
+                    <input
+                        type="number"
+                        id="Credit_Score"
+                        name="Credit_Score"
+                        placeholder="e.g. 720"
+                        min="300"
+                        max="900"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="NETMONTHLYINCOME">Monthly Income (₹)</label>
+                    <input
+                        type="number"
+                        id="NETMONTHLYINCOME"
+                        name="NETMONTHLYINCOME"
+                        placeholder="e.g. 50000"
+                        min="0"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="AGE">Age</label>
+                    <input
+                        type="number"
+                        id="AGE"
+                        name="AGE"
+                        placeholder="e.g. 30"
+                        min="18"
+                        max="100"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Time_With_Curr_Empr">Years with Current Employer</label>
+                    <input
+                        type="number"
+                        step="0.1"
+                        id="Time_With_Curr_Empr"
+                        name="Time_With_Curr_Empr"
+                        placeholder="e.g. 5"
+                        min="0"
+                        max="60"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="EDUCATION">Education</label>
+                    <select
+                        id="EDUCATION"
+                        name="EDUCATION"
+                        required>
+
+                        <option value="">Select Education</option>
+                        <option value="SSC">SSC</option>
+                        <option value="12TH">12TH</option>
+                        <option value="UNDER GRADUATE">UNDER GRADUATE</option>
+                        <option value="GRADUATE">GRADUATE</option>
+                        <option value="POST-GRADUATE">POST-GRADUATE</option>
+                        <option value="PROFESSIONAL">PROFESSIONAL</option>
+                        <option value="OTHERS">OTHERS</option>
+
+                    </select>
+                </div>
+
+                <button type="submit">
+                    Predict Credit Category
+                </button>
+
+            </form>
+
+        </div>
+
+        <br>
+
+        <div class="back-home-wrap">
+
+            <a href="/">
+                <button>
+                    Back Home
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

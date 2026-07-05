@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual Environment
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Uploads
+app/uploads/
+
+# Personal Notes
+note.md
+
+# OS Files
+Thumbs.db
+.DS_Store
+
+*.pyc
+
+*.log
+
+data/processed/credit_data_clean.csv
+data/raw/
