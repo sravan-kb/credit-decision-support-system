@@ -6,21 +6,15 @@
 }
 
 body{
-
     background:#eef2f7;
-
 }
 
 .container{
-
     width:90%;
     max-width:1400px;
-
     margin:auto;
-
     padding-top:40px;
     padding-bottom:40px;
-
 }
 
 /* ===========================
@@ -28,29 +22,18 @@ body{
 =========================== */
 
 h1{
-
     text-align:center;
-
     color:#184c8c;
-
     font-size:36px;
-
     margin-bottom:10px;
-
 }
 
 .subtitle{
-
     text-align:center;
-
     margin-bottom:30px;
-
     color:#555;
-
     font-size:16px;
-
     line-height:1.5;
-
 }
 
 /* ===========================
@@ -58,83 +41,54 @@ h1{
 =========================== */
 
 .cards{
-
     display:flex;
-
     justify-content:center;
-
     gap:20px;
-
     flex-wrap:wrap;
+    margin-bottom:20px;
+}
 
+.cards > .card{
+    flex:1;
+    min-width:220px;
 }
 
 .card{
-
     background:white;
-
-    width:500px;
-
     border-radius:12px;
-
     padding:26px;
-
     box-shadow:0 6px 18px rgba(0,0,0,0.10);
-
     display:flex;
-
     flex-direction:column;
-
 }
 
 .card > a{
-
     margin-top:auto;
-
 }
 
 .card h2{
-
     margin-bottom:14px;
-
     color:#184c8c;
-
     font-size:22px;
-
 }
 
 .card p{
-
     margin-bottom:16px;
-
     line-height:1.6;
-
     font-size:15px;
-
     color:#444;
-
 }
 
-/* Wide centered card used for forms (replaces inline style="width:900px") */
 .form-card{
-
     width:600px;
-
     max-width:100%;
-
     margin:auto;
-
 }
 
-/* Centered wrapper for a single back-home button (replaces inline style="width:400px") */
 .back-home-wrap{
-
     width:280px;
-
     max-width:100%;
-
     margin:auto;
-
 }
 
 /* ===========================
@@ -142,53 +96,44 @@ h1{
 =========================== */
 
 .form-group{
-
     margin-bottom:14px;
-
 }
 
 label{
-
     display:block;
-
     margin-bottom:6px;
-
     color:#184c8c;
-
     font-size:15px;
-
     font-weight:bold;
-
 }
 
 input,
 select{
-
     width:100%;
-
     height:40px;
-
     padding:8px 12px;
-
     border:1px solid #c8d1dc;
-
     border-radius:8px;
-
     font-size:14px;
-
     outline:none;
-
     transition:0.3s;
-
 }
 
 input:focus,
 select:focus{
-
     border-color:#184c8c;
-
     box-shadow:0 0 8px rgba(24,76,140,.20);
+}
 
+input[type="file"]{
+    width:100%;
+    height:auto;
+    padding:12px;
+    border:1px dashed #c8d1dc;
+    border-radius:8px;
+    font-size:14px;
+    background:#f8fafc;
+    cursor:pointer;
 }
 
 /* ===========================
@@ -196,33 +141,20 @@ select:focus{
 =========================== */
 
 button{
-
     width:100%;
-
     padding:12px;
-
     background:#184c8c;
-
     color:white;
-
     border:none;
-
     border-radius:8px;
-
     cursor:pointer;
-
     font-size:15px;
-
     font-weight:bold;
-
     transition:0.3s;
-
 }
 
 button:hover{
-
     background:#10345f;
-
 }
 
 /* ===========================
@@ -230,51 +162,31 @@ button:hover{
 =========================== */
 
 .stats-strip{
-
     display:flex;
-
     justify-content:center;
-
     gap:16px;
-
     flex-wrap:wrap;
-
-    margin-top:36px;
-
+    margin-bottom:20px;
 }
 
 .stat-box{
-
     background:white;
-
     border-radius:10px;
-
     padding:18px 24px;
-
     text-align:center;
-
     box-shadow:0 4px 12px rgba(0,0,0,0.08);
-
     min-width:160px;
-
 }
 
 .stat-box h3{
-
     color:#184c8c;
-
     font-size:26px;
-
     margin-bottom:4px;
-
 }
 
 .stat-box p{
-
     color:#666;
-
     font-size:13px;
-
 }
 
 /* ===========================
@@ -282,21 +194,14 @@ button:hover{
 =========================== */
 
 .section-heading{
-
     text-align:center;
-
     margin-top:50px;
-
     margin-bottom:20px;
-
 }
 
 .section-heading h2{
-
     color:#184c8c;
-
     font-size:24px;
-
 }
 
 /* ===========================
@@ -304,151 +209,154 @@ button:hover{
 =========================== */
 
 .step-card{
-
-    width:320px;
-
     text-align:center;
-
     position:relative;
-
 }
 
 .step-number{
-
     width:36px;
-
     height:36px;
-
     background:#184c8c;
-
     color:white;
-
     border-radius:50%;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     font-weight:bold;
-
     font-size:16px;
-
     margin:0 auto 14px auto;
-
 }
 
 /* ===========================
-   Risk Category Cards
+   Risk Category Cards (horizontal)
 =========================== */
 
 .risk-card{
-
-    width:280px;
-
     text-align:center;
-
     border-top:6px solid;
-
 }
 
 .risk-card h2{
-
     font-size:36px;
-
     margin-bottom:6px;
-
 }
 
 .risk-card h3{
-
     font-size:16px;
-
     margin-bottom:12px;
-
     color:#333;
-
 }
 
 .risk-card p{
-
     font-size:13px;
-
 }
 
-.risk-p1{
+.risk-p1{ border-top-color:#2e9e5b; }
+.risk-p1 h2{ color:#2e9e5b; }
 
-    border-top-color:#2e9e5b;
+.risk-p2{ border-top-color:#3d7fd6; }
+.risk-p2 h2{ color:#3d7fd6; }
 
+.risk-p3{ border-top-color:#e0a92e; }
+.risk-p3 h2{ color:#e0a92e; }
+
+.risk-p4{ border-top-color:#d64545; }
+.risk-p4 h2{ color:#d64545; }
+
+/* ===========================
+   How Banks Use This (two-column)
+=========================== */
+
+.practice-two-col{
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+    width:100%;
+    margin-bottom:20px;
+    flex-wrap:wrap;
 }
 
-.risk-p1 h2{
-
-    color:#2e9e5b;
-
+.practice-text-col{
+    flex:2;
+    min-width:320px;
 }
 
-.risk-p2{
-
-    border-top-color:#3d7fd6;
-
+.practice-sidebar-col{
+    flex:1;
+    min-width:260px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
 }
 
-.risk-p2 h2{
-
-    color:#3d7fd6;
-
+.sidebar-box{
+    padding:18px;
+    border-left:5px solid;
 }
 
-.risk-p3{
-
-    border-top-color:#e0a92e;
-
+.sidebar-box h3{
+    font-size:15px;
+    margin-bottom:8px;
+    color:#184c8c;
 }
 
-.risk-p3 h2{
-
-    color:#e0a92e;
-
+.sidebar-label{
+    font-size:13px;
+    color:#666;
+    margin-bottom:6px;
 }
 
-.risk-p4{
-
-    border-top-color:#d64545;
-
+.sidebar-approves{
+    font-size:14px;
+    color:#333;
 }
 
-.risk-p4 h2{
+.sidebar-safe{ border-left-color:#2e9e5b; }
+.sidebar-growth{ border-left-color:#d64545; }
+.sidebar-npa{ border-left-color:#e0a92e; }
 
-    color:#d64545;
+/* ===========================
+   Tables (bulk results)
+=========================== */
 
+table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+}
+
+th{
+    background:#184c8c;
+    color:white;
+    padding:12px;
+    text-align:center;
+}
+
+td{
+    padding:10px;
+    text-align:center;
+    border:1px solid #ddd;
+}
+
+tr:nth-child(even){
+    background:#f5f8fc;
 }
 
 /* ===========================
-   Prediction Confidence Bar
+   Confidence Bar (single result page)
 =========================== */
 
 .confidence-bar-track{
-
     display:flex;
-
     width:100%;
-
     height:28px;
-
     border-radius:8px;
-
     overflow:hidden;
-
     margin-bottom:18px;
-
 }
 
 .confidence-segment{
-
     height:100%;
-
 }
 
 .confidence-p1{ background:#2e9e5b; }
@@ -457,265 +365,111 @@ button:hover{
 .confidence-p4{ background:#d64545; }
 
 .confidence-legend{
-
     display:flex;
-
     flex-wrap:wrap;
-
     gap:16px;
-
     font-size:13px;
-
     color:#444;
-
 }
 
 .confidence-legend-item{
-
     display:flex;
-
     align-items:center;
-
     gap:6px;
-
 }
 
 .confidence-dot{
-
     width:10px;
-
     height:10px;
-
     border-radius:50%;
-
     display:inline-block;
-
 }
 
 /* ===========================
-   Key Factors (Primary + Secondary)
+   Factor List (bulk SHAP summary, enquiry insight)
 =========================== */
 
-.primary-factor-box{
-
+.summary-sentence{
     background:#eef4fb;
-
     border-left:4px solid #184c8c;
-
+    padding:14px 16px;
     border-radius:8px;
-
-    padding:16px;
-
-    margin-bottom:18px;
-
+    font-size:14px;
+    color:#333;
+    line-height:1.6;
+    margin-bottom:20px;
 }
-
-.primary-factor-label{
-
-    display:block;
-
-    font-size:12px;
-
-    text-transform:uppercase;
-
-    letter-spacing:0.5px;
-
-    color:#888;
-
-    margin-bottom:8px;
-
-}
-
-.primary-factor-content{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    flex-wrap:wrap;
-
-    gap:10px;
-
-    font-size:18px;
-
-    color:#184c8c;
-
-}
-
-.secondary-label{
-
-    display:block;
-
-    font-size:13px;
-
-    color:#666;
-
-    margin-bottom:10px;
-
-}
-
-.chip-list{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:8px;
-
-}
-
-.chip{
-
-    font-size:12px;
-
-    padding:6px 12px;
-
-    border-radius:20px;
-
-    font-weight:bold;
-
-}
-
-.chip-supported{
-
-    background:#e8f0fd;
-
-    color:#184c8c;
-
-}
-
-.chip-opposed{
-
-    background:#f0f0f0;
-
-    color:#666;
-
-}
-
-.factor-direction{
-
-    font-size:12px;
-
-    font-weight:bold;
-
-    padding:3px 10px;
-
-    border-radius:6px;
-
-}
-
-.factor-supported{
-
-    background:#e8f0fd;
-
-    color:#184c8c;
-
-}
-
-.factor-opposed{
-
-    background:#f0f0f0;
-
-    color:#666;
-
-}
-
-/* ===========================
-   SHAP Factor List (bulk page global summary)
-=========================== */
 
 .factor-list{
-
     display:flex;
-
     flex-direction:column;
-
-    gap:18px;
-
+    gap:16px;
 }
 
 .factor-row{
-
     background:#f5f8fc;
-
     padding:14px 16px;
-
     border-radius:8px;
-
 }
 
 .factor-row-top{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     margin-bottom:8px;
-
     flex-wrap:wrap;
-
     gap:8px;
-
 }
 
 .factor-name{
-
     font-weight:bold;
-
     color:#184c8c;
-
     font-size:14px;
+}
 
+.factor-direction{
+    font-size:12px;
+    font-weight:bold;
+    padding:3px 10px;
+    border-radius:6px;
+}
+
+.factor-supported{
+    background:#e8f0fd;
+    color:#184c8c;
+}
+
+.factor-opposed{
+    background:#f0f0f0;
+    color:#666;
 }
 
 .factor-bar-track{
-
     width:100%;
-
     height:10px;
-
     background:#dfe6ee;
-
     border-radius:5px;
-
     overflow:hidden;
-
     margin-bottom:6px;
-
 }
 
 .factor-bar-fill{
-
     height:100%;
-
     border-radius:5px;
-
     transition:width 0.4s ease;
-
 }
 
 .factor-bar-increased{
-
     background:#d64545;
-
 }
 
 .factor-bar-decreased{
-
     background:#2e9e5b;
-
 }
 
 .factor-impact{
-
     font-size:12px;
-
     color:#777;
-
 }
 
 /* ===========================
@@ -723,81 +477,10 @@ button:hover{
 =========================== */
 
 .footer{
-
     text-align:center;
-
     margin-top:50px;
-
     color:#888;
-
     font-size:13px;
-
-}
-
-/* ===========================
-   File Input (bulk upload)
-=========================== */
-
-input[type="file"]{
-
-    width:100%;
-
-    height:auto;
-
-    padding:12px;
-
-    border:1px dashed #c8d1dc;
-
-    border-radius:8px;
-
-    font-size:14px;
-
-    background:#f8fafc;
-
-    cursor:pointer;
-
-}
-
-/* ===========================
-   Tables
-=========================== */
-
-table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
-    font-size:13px;
-
-}
-
-th{
-
-    background:#184c8c;
-
-    color:white;
-
-    padding:10px;
-
-    text-align:center;
-
-}
-
-td{
-
-    padding:8px;
-
-    text-align:center;
-
-    border:1px solid #ddd;
-
-}
-
-tr:nth-child(even){
-
-    background:#f5f8fc;
-
 }
 
 /* ===========================
@@ -807,64 +490,41 @@ tr:nth-child(even){
 @media(max-width:768px){
 
     .container{
-
         width:95%;
-
     }
 
     h1{
-
         font-size:28px;
-
     }
 
     .subtitle{
-
         font-size:14px;
-
     }
 
     .card{
-
-        width:100%;
-
         padding:18px;
-
     }
 
     .form-card{
-
         width:100%;
-
     }
 
     .back-home-wrap{
-
         width:100%;
-
     }
 
     label{
-
         font-size:14px;
-
     }
 
     input,
     select{
-
         height:38px;
-
         font-size:14px;
-
     }
 
     button{
-
         font-size:14px;
-
         padding:12px;
-
     }
-
 }
