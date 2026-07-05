@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.git/
+.gitignore
+notebooks/
+reports/
+data/raw/
+.python-version
+uv.lock
+pyproject.toml
+*.ipynb
