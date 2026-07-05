@@ -1,2 +1,2 @@
-# credit-decision-support
+# credit-decision-support-system
 AI-powered credit risk classification system — dual XGBoost models (quick + full), SHAP explainability, FastAPI backend
