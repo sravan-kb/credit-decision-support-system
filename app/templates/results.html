@@ -27,6 +27,15 @@
             The uploaded customer dataset has been processed successfully.
         </p>
 
+        {% if download_available %}
+        <br>
+        <a href="/download-results">
+            <button style="width:auto; padding:14px 32px;">
+                ⬇ Download Full Results ({{ total_customers }} customers)
+            </button>
+        </a>
+        {% endif %}
+
     </div>
 
     <div class="cards">

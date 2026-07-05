@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request, UploadFile, File, Form
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 import joblib
 import pandas as pd
@@ -16,6 +17,10 @@ app = FastAPI(title="Credit Decision Support System")
 # ============================================================
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+OUTPUTS_DIR = BASE_DIR / "outputs"
+OUTPUTS_DIR.mkdir(exist_ok=True)
+RESULTS_CSV_PATH = OUTPUTS_DIR / "latest_bulk_results.csv"
 
 MODEL_PATH = BASE_DIR / "models" / "xgb_pipeline.pkl"
 LABEL_ENCODER_PATH = BASE_DIR / "models" / "label_encoder.pkl"
@@ -370,6 +375,10 @@ async def predict_csv(request: Request, file: UploadFile = File(...)):
     prediction_counts = df["Prediction"].value_counts().to_dict()
     preview = df.head(20)
 
+    # Save the FULL results (all rows, not just the preview) so the
+    # download button can serve the complete predicted dataset
+    df.to_csv(RESULTS_CSV_PATH, index=False)
+
     global_top_factors = get_global_top_factors(
         df.drop(columns=["Prediction"]),
         predictions_encoded,
@@ -392,6 +401,16 @@ async def predict_csv(request: Request, file: UploadFile = File(...)):
             "product_risk_breakdown": product_risk_breakdown,
             "enquiry_insight": enquiry_insight,
             "enquiry_cols": enquiry_cols,
-            "enquiry_headline": enquiry_headline
+            "enquiry_headline": enquiry_headline,
+            "download_available": True
         }
+    )
+
+
+@app.get("/download-results")
+async def download_results():
+    return FileResponse(
+        path=RESULTS_CSV_PATH,
+        filename="credit_risk_results.csv",
+        media_type="text/csv"
     )
