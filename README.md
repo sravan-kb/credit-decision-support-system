@@ -1,10 +1,6 @@
 ---
 title: Credit Decision Support System
-emoji: 📚
-colorFrom: green
-colorTo: yellow
 sdk: docker
-pinned: false
 short_description: AI-powered credit risk classifier (P1–P4)
 ---
 
@@ -102,5 +98,3 @@ Then open `http://127.0.0.1:8000`.
 
 ---
 
-**Sravan Kumar Branwal**
-CDAC Thiruvananthapuram — PGCP Big Data Analytics
